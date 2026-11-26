@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ShowTickets: encontre shows, festivais e experiências musicais.">
+  <title>ShowTickets | Seu próximo show começa aqui</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header" id="inicio">
+    <div class="container header-content">
+      <a class="brand" href="#inicio" aria-label="ShowTickets - página inicial">
+        <span class="brand-mark">S<span>T</span></span>
+        <span>SHOW<span class="brand-accent">TICKETS</span></span>
+      </a>
+
+      <nav class="main-nav" aria-label="Navegação principal">
+        <ul>
+          <li><a href="#eventos">Explorar eventos</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+
+      <a class="header-cart" href="#carrinho">
+        <span aria-hidden="true">◈</span> Meu carrinho
+        <span class="cart-count" id="header-cart-count">0</span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-glow hero-glow-one"></div>
+      <div class="hero-glow hero-glow-two"></div>
+      <div class="container hero-content">
+        <div class="hero-copy">
+          <span class="eyebrow"><span class="pulse-dot"></span> A música acontece ao vivo</span>
+          <h1>Seu próximo<br>momento <span>inesquecível.</span></h1>
+          <p>Descubra shows, festivais e experiências. Escolha seu evento e garanta seu lugar.</p>
+          <a class="button button-primary" href="#eventos">Explorar eventos <span aria-hidden="true">↗</span></a>
+          <div class="hero-proof">
+            <div class="proof-avatars"><span>♫</span><span>✦</span><span>♪</span></div>
+            <p><strong>+ de 12 mil</strong><br>experiências compartilhadas</p>
+          </div>
+        </div>
+        <div class="hero-art" aria-label="Ilustração de um show com luzes neon">
+          <div class="hero-art-ring"></div>
+          <div class="hero-ticket">
+            <span class="ticket-topline">LIVE EXPERIENCE / 2026</span>
+            <span class="ticket-symbol">✳</span>
+            <strong>FEEL<br>THE<br>MUSIC.</strong>
+            <span class="ticket-bottomline">YOUR NIGHT. YOUR SOUND.</span>
+          </div>
+          <span class="floating-note note-one">✦ LIVE</span>
+          <span class="floating-note note-two">SOM • LUZ • ENERGIA</span>
+        </div>
+      </div>
+      <div class="hero-bottom-line"></div>
+    </section>
+
+    <section class="event-section section-space" id="eventos">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">AGENDA AO VIVO</span>
+            <h2>Encontre seu <span>próximo show.</span></h2>
+            <p>Uma seleção de eventos para sair da rotina e viver a música.</p>
+          </div>
+          <span class="heading-side-note">ESCOLHA • COMPRE • VIVA</span>
+        </div>
+
+        <form class="search-bar" id="search-form">
+          <label class="search-field">
+            <span aria-hidden="true">⌕</span>
+            <input type="search" id="search-input" placeholder="Busque por artista, evento ou cidade" aria-label="Buscar eventos">
+          </label>
+          <label class="filter-field">
+            <span class="sr-only">Filtrar por categoria</span>
+            <select id="category-filter">
+              <option value="todos">Todas as categorias</option>
+              <option value="Rock">Rock</option>
+              <option value="Eletrônica">Eletrônica</option>
+              <option value="Pop">Pop</option>
+              <option value="Indie">Indie</option>
+            </select>
+          </label>
+          <button class="button button-primary search-button" type="submit">Buscar</button>
+        </form>
+
+        <div class="event-grid" id="event-grid" aria-live="polite">
+          <!-- Os cards são criados pelo JavaScript a partir do array de eventos. -->
+        </div>
+        <p class="empty-state" id="empty-state" hidden>Nenhum evento encontrado. Tente outra busca.</p>
+      </div>
+    </section>
+
+    <section class="benefits-section" id="sobre">
+      <div class="container benefits-grid">
+        <article class="benefit-item">
+          <span class="benefit-icon">⌁</span>
+          <div><h3>Escolha sem complicação</h3><p>Encontre eventos e consulte as informações em um só lugar.</p></div>
+        </article>
+        <article class="benefit-item">
+          <span class="benefit-icon">◇</span>
+          <div><h3>Compra organizada</h3><p>Confira quantidades, valores e descontos antes de finalizar.</p></div>
+        </article>
+        <article class="benefit-item">
+          <span class="benefit-icon">✳</span>
+          <div><h3>Viva a experiência</h3><p>Planeje sua próxima noite de música ao vivo.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="cart-section section-space" id="carrinho">
+      <div class="container cart-layout">
+        <div class="cart-main">
+          <span class="eyebrow">QUASE LÁ</span>
+          <h2>Seu carrinho<span>.</span></h2>
+          <p class="section-intro">Revise seus ingressos antes de continuar.</p>
+          <div class="table-wrap">
+            <table class="cart-table">
+              <thead>
+                <tr><th>Evento</th><th>Preço</th><th>Qtd.</th><th>Subtotal</th><th><span class="sr-only">Ações</span></th></tr>
+              </thead>
+              <tbody id="cart-items">
+                <tr><td colspan="5" class="cart-empty">Seu carrinho está vazio. Adicione um evento para começar!</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <aside class="summary-card">
+          <h3>Resumo do pedido</h3>
+          <div class="summary-line"><span>Ingressos</span><strong id="subtotal-value">R$ 0,00</strong></div>
+          <div class="summary-line"><span>Desconto</span><strong class="discount-value" id="discount-value">− R$ 0,00</strong></div>
+          <div class="coupon-area">
+            <label for="coupon-input">Cupom de desconto</label>
+            <form id="coupon-form" class="coupon-form">
+              <input type="text" id="coupon-input" placeholder="Ex.: SHOW10" autocomplete="off">
+              <button type="submit" class="button button-outline">Aplicar</button>
+            </form>
+            <p class="coupon-feedback" id="coupon-feedback" aria-live="polite">Use SHOW10 para ganhar 10% de desconto.</p>
+          </div>
+          <div class="summary-total"><span>Total</span><strong id="total-value">R$ 0,00</strong></div>
+          <button class="button button-primary checkout-button" id="checkout-button" type="button" disabled>Finalizar compra <span>→</span></button>
+          <p class="secure-note">◇ Compra demonstrativa — nenhum pagamento real será realizado.</p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contato">
+    <div class="container footer-content">
+      <div>
+        <a class="brand footer-brand" href="#inicio"><span class="brand-mark">S<span>T</span></span><span>SHOW<span class="brand-accent">TICKETS</span></span></a>
+        <p>Encontre o som. Garanta o ingresso. Viva o momento.</p>
+      </div>
+      <div class="footer-links">
+        <h3>Explore</h3>
+        <ul><li><a href="#eventos">Eventos</a></li><li><a href="#carrinho">Carrinho</a></li><li><a href="#sobre">Sobre nós</a></li></ul>
+      </div>
+      <div class="footer-links">
+        <h3>Contato</h3>
+        <ul><li><a href="mailto:contato@showtickets.example">contato@showtickets.example</a></li><li><a href="#inicio">Voltar ao topo ↑</a></li></ul>
+      </div>
+    </div>
+    <div class="container footer-bottom"><span>© 2026 ShowTickets — Projeto acadêmico.</span><span>Feito para quem vive música.</span></div>
+  
+    <div class="container project-credits" style="text-align:center; padding: 12px 0;">
+      <p>Trabalho de Desenvolvimento Web • HTML5, CSS3 e JavaScript</p>
+      <p>Integrantes: Vinícius Gonçalves, Gabrielle Regis Macedo e Victor Metzger</p>
+      <p>Professora: Janainny Carvalho</p>
+    </div>
+</footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
